@@ -68,10 +68,12 @@ namespace Test
 			
 			CfgR2 cf2 = new CfgR2();							// Crea l'oggetto della classe derivata
 			cf2.ReadConfiguration(filename);					// Legge la configurazione (classe base)
-			bool ok = cf2.GetNames();							// Imposta le variabili (da classe base a derivata)
+			bool ok = cf2.GetNames(true);						// Imposta le variabili (da classe base a derivata), eliminandole dal dizionario
 			Console.WriteLine(cf2.ToString());					// Visualizza i messaggi (da classe base)
-			cf2.Clear();										// Cancella tutti i dati letti (della classe base)
+			
 			Console.WriteLine(cf2.Dump());						// Stampa le variabili (funzione della classe derivata)
+			Console.WriteLine(cf2.DumpEntries());				// Stampa il contenuto del dizionario
+			cf2.Clear();										// Cancella tutti i dati letti (della classe base)
 
 			Console.WriteLine("Fine programma.");
 			Console.ReadKey();

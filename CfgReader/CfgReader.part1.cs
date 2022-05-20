@@ -648,10 +648,11 @@ namespace Fred68.CfgReader
 			}
 
 		/// <summary>
-		/// TEST for derived class
+		/// Set public members contained in the dictionary
 		/// </summary>
+		/// <param name="removeFromDictionary">Remove copied entries from dictionary</param>
 		/// <returns></returns>
-		public bool GetNames()
+		public bool GetNames(bool removeFromDictionary)
 			{
 			bool ok = true;
 
@@ -673,6 +674,10 @@ namespace Fred68.CfgReader
 				if(_dict.ContainsKey(finfo.Name))
 					{
 					finfo.SetValue(this, _dict[finfo.Name]);
+					if(removeFromDictionary)
+						{
+						_dict[finfo.Name] = null;		// Rimuove dal dizionario
+						}
 					_msg.AppendLine($"{finfo.Name} = {finfo.GetValue(this)}");
 					}
 				else
