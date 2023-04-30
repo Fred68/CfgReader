@@ -33,7 +33,7 @@ namespace Test
 		static void Main(string[] args)
 			{
 			string filename = "esempio.txt";
-			//string filename = "db.cfg";
+			
 			Console.WriteLine("Avvio programma.");
 
 			
