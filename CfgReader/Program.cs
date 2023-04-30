@@ -40,7 +40,7 @@ namespace Test
 
 			Console.WriteLine("Utilizzo come dizionario...");
 
-			dynamic cfgR = new CfgReader();				// Crea l'oggetto della classe base
+			dynamic cfgR = new CfgReader();							// Crea l'oggetto della classe base
 			cfgR.ReadConfiguration(filename);						// Legge la configurazione		
 			Console.WriteLine(cfgR.ToString());						// Visualizza i messaggi
 			try

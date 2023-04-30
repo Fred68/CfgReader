@@ -20,9 +20,12 @@ INT Paperino = 10
 
 INT bbb=5
 
+# errore di sintassi = errore"
+
 [Sezione3]
 FLOAT cc = -3.4
 # int dd = ddd		#error
+# errore di sintassi = errore"
 [.]
 #ee = eee
 INT bbb=			# Remove variabile (specify the type, anyway)
@@ -30,6 +33,7 @@ INT bbb=			# Remove variabile (specify the type, anyway)
 [Sez2]
 s2 = "non impostata"
 s2a = 122.12
+errore di sintassi = errore"
 [.]
 
 MSG					# Empty message
