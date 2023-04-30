@@ -111,11 +111,13 @@ namespace Fred68.GenDictionary
 				if(_dict[key].IsList)
 					{
 					StringBuilder l = new StringBuilder();
-					l.Append($"[{key}]=");
+					l.Append($"[{key}]="+"{");
 					dynamic lst = _dict[key].Get();
-					foreach(dynamic x in lst)
+					for(int i=0; i < lst.Count; i++)
 						{
-						l.Append($"{x};");
+						dynamic x = lst[i];
+						l.Append(x);
+						l.Append( (i!=lst.Count-1) ? "; " : "}");
 						}
 					sb.AppendLine(l.ToString());
 					}
@@ -124,6 +126,7 @@ namespace Fred68.GenDictionary
 					sb.AppendLine($"[{key}]={_dict[key].Get().ToString()}");
 					}
 				}
+			
 			return sb.ToString();
 			}
 

@@ -485,8 +485,8 @@ namespace Fred68.CfgReader
 					}
 				case TypeVar.STR:
 					{
-					ok = true;
-					return txt;
+					ok = true;		// txt, letto dal file di configurazione, contiene anche i doppi apici ""
+					return txt.TrimStart('"').TrimEnd('"');
 					}
 				case TypeVar.BOOL:
 					{
