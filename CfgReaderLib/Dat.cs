@@ -19,6 +19,7 @@ namespace Fred68.GenDictionary
 		FLOAT,
 		DOUBLE,
 		DATE,
+		COLOR,				// ARGB
 		None				// Ultimo 
 		}
 
@@ -188,6 +189,7 @@ namespace Fred68.GenDictionary
 					else
 						return (DateTime)_obj;
 					}
+				
 				default:
 					throw new NotImplementedException("Tipo dato non definito");
 				}

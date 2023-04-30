@@ -16,6 +16,7 @@ namespace Fred68.CfgReader
 	{
 
 	#warning DA FARE:
+	#warning Completare DATE
 	#warning Aggiungere uso delle variabili (concatenazione, voce singola, somma, differenza)
 	
 
@@ -208,6 +209,7 @@ namespace Fred68.CfgReader
 
 			int linenum = 1;											// Contatore
 			bool continua = true;										// Flag per uscire prima dal ciclo
+			bool sintassiAttiva = true;									// Si ferma se c'è un errore di sintassi
 
 			foreach(string line in _lines)								// foreach fuori dal try: elenca tutte le eccezioni senza fermarsi
 				{
@@ -220,7 +222,12 @@ namespace Fred68.CfgReader
 					tcom = IdentifyCommand(line);						// Identifica un comando
 					t = IdentifyVariable(line);							// Identifica una assegnazione di variabile
 
-					if((line.Length > 0) && (sect.Length == 0) && (tcom.Item1.Length == 0) && (t.Item1.Length == 0))	
+					if(	(line.Length > 0) &&				// linea non vuota
+						(sect.Length == 0) &&				// linea senza stringa di sezione 
+						(tcom.Item1.Length == 0) &&			// Comando vuoto
+						(t.Item1.Length == 0) &&			// Nome della variabile vuoto
+						(_sect[section]) &&					// Sezione corrente attiva
+						sintassiAttiva)						// Sintassi attiva
 						{
 						throw new Exception("Errore di sintassi");	// ...genera un'eccezione.
 						}
@@ -245,7 +252,12 @@ namespace Fred68.CfgReader
 						{
 						if( (section.Length==0) || ((section.Length>0) && (_sect[section])))	// Se fuori sezione o in una sezione attiva
 							{
+							sintassiAttiva = true;
 							continua = _cmds[tcom.Item1](tcom.Item2);	// Chiama la funzione
+							}
+						else
+							{
+							sintassiAttiva = false;
 							}
 						}												// ...oppure esegue l'assegnazione:
 					else if( ((sect = IdentifySection(t.Item1)).Length > 0) && (sect != CHR_SezioneEnd) )	// Se identifica un nome di sezione nel nome...
@@ -551,7 +563,11 @@ namespace Fred68.CfgReader
 					}
 				case TypeVar.DATE:
 					{
-					throw new NotImplementedException("Tipo dato non ancora implementato");
+					throw new NotImplementedException("Tipo dato non implementato");
+					}
+				case TypeVar.COLOR:
+					{
+					throw new NotImplementedException("Lista di COLOR non ammessa");
 					}
 				default:
 					{
