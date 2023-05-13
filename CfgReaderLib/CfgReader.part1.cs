@@ -351,7 +351,7 @@ namespace Fred68.CfgReader
 		Tuple<string, string> IdentifyCommand(string line)
 			{
 			string c, a;
-			c = a = string.Empty;
+			a = string.Empty;
 			int i;
 			if( (i = line.IndexOf(CHR_TypeArgSeparator)) != -1)		// Cerca la prima occorrenza del carattere di separazione (spazio)
 				{
@@ -479,7 +479,7 @@ namespace Fred68.CfgReader
 				{
 				case TypeVar.INT:
 					{
-					int x = 0;
+					int x;	// TryParse(..., out int result) imposta result a 0 se errore
 					ok = int.TryParse(txt, System.Globalization.NumberStyles.Integer, System.Globalization.CultureInfo.InvariantCulture, out x);
 					return x;
 					}
@@ -509,13 +509,13 @@ namespace Fred68.CfgReader
 					}
 				case TypeVar.FLOAT:
 					{
-					float x = 0;
+					float x;
 					ok = float.TryParse(txt, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out x);
 					return x;
 					}
 				case TypeVar.DOUBLE:
 					{
-					double x = 0;
+					double x;
 					ok = double.TryParse(txt, System.Globalization.NumberStyles.Float, System.Globalization.CultureInfo.InvariantCulture, out x);
 					return x;
 					}
