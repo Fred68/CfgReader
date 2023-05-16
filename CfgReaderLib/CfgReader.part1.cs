@@ -15,7 +15,6 @@ using System.Reflection;					// Reflection (per accedere ai membri pubblici di u
 namespace Fred68.CfgReader
 	{
 
-	#warning DA FARE:
 	#warning Completare DATE
 	#warning Aggiungere uso delle variabili (concatenazione, voce singola, somma, differenza)
 	
