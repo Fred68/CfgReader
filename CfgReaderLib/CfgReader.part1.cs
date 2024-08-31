@@ -276,7 +276,7 @@ namespace Fred68.CfgReader
 						(_sect[section]) &&					// Sezione corrente attiva
 						sintassiAttiva)						// Sintassi attiva
 						{
-						throw new Exception("Errore di sintassi");	// ...genera un'eccezione.
+							throw new Exception("Errore di sintassi");	// ...genera un'eccezione.
 						}
 
 					if(sect.Length > 0)									// Se ha identificato una sezione

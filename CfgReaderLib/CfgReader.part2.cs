@@ -45,7 +45,7 @@ namespace Fred68.CfgReader
 		/// <summary>
 		/// Comment prefix
 		/// </summary>
-		public string CHR_Commento {get; } = @"#";
+		public string CHR_Commento {get; set;} = @"#";
 		/// <summary>
 		/// Caratteri ammessi (Regex)
 		/// Lettere e numeri, interpunzioni, parentesi, oltre ai caratteri speciali
@@ -54,15 +54,15 @@ namespace Fred68.CfgReader
 		/// <summary>
 		/// Inizio nome identificativo di sezione
 		/// </summary>
-		public string CHR_SezioneOpenBracket {get; } = @"[";
+		public string CHR_SezioneOpenBracket {get; set;} = @"[";
 		/// <summary>
 		/// Fine nome identificativo di sezione
 		/// </summary>
-		public string CHR_SezioneClosedBracket {get; } = @"]";
+		public string CHR_SezioneClosedBracket {get; set;} = @"]";
 		/// <summary>
 		/// Carattere fine sezione
 		/// </summary>
-		public string CHR_SezioneEnd {get; } = @".";
+		public string CHR_SezioneEnd {get; set;} = @".";
 		/// <summary>
 		/// Assegnazione
 		/// </summary>
@@ -70,23 +70,23 @@ namespace Fred68.CfgReader
 		/// <summary>
 		/// Delimitatore di stringa (Regex non usato)
 		/// </summary>
-		public string CHR_StringDelimiter {get; } = "\"";	// public string CHR_StringDelimiterRgx {get; } = "(?<=\").*?(?=\")";	
+		public string CHR_StringDelimiter {get; set;} = "\"";	// public string CHR_StringDelimiterRgx {get; } = "(?<=\").*?(?=\")";	
 		/// <summary>
 		/// Separatore di lista
 		/// </summary>
-		public string CHR_ListSeparator {get; } = @",";
+		public string CHR_ListSeparator {get; set; } = @",";
 		/// <summary>
 		/// Fine linea (assegnazioni multilinea)
 		/// </summary>
-		public string CHR_MergeNextLine {get; } = @"_";
+		public string CHR_MergeNextLine {get; set; } = @"_";
 		/// <summary>
 		/// Separatore tra tipo e nome variabile (spazio)
 		/// </summary>
-		public string CHR_TypeArgSeparator {get; } = @" ";
+		public string CHR_TypeArgSeparator {get; set; } = @" ";
 		/// <summary>
 		/// Allineamento numeri di linea
 		/// </summary>
-		public int PADlines {get; } = 6;
+		public int PADlines {get; set; } = 6;
 		#endregion
 
 		#region PROPRIETA' (lettura e scrittura)
